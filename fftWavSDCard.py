@@ -63,15 +63,47 @@ def calculate_levels(data, chunk,sample_rate):
    # Remove last element in array to make it the same size as chunk
    fourier=np.delete(fourier,len(fourier)-1)
    # Find average 'amplitude' for specific frequency ranges in Hz
+   #Added 24 more matrix ranges to bring the total to 32 total ranges (one for each led on width)
    power = np.abs(fourier)
-   matrix[0]= int(np.mean(power[piff(0)    :piff(156):1]))
-   matrix[1]= int(np.mean(power[piff(156)  :piff(313):1]))
-   matrix[2]= int(np.mean(power[piff(313)  :piff(625):1]))
-   matrix[3]= int(np.mean(power[piff(625)  :piff(1250):1]))
-   matrix[4]= int(np.mean(power[piff(1250) :piff(2500):1]))
-   matrix[5]= int(np.mean(power[piff(2500) :piff(5000):1]))
-   matrix[6]= int(np.mean(power[piff(5000) :piff(10000):1]))
-   matrix[7]= int(np.mean(power[piff(10000):piff(20000):1]))
+   matrix[0]= int(np.mean(power[piff(0) :piff(156):1]))
+   matrix[1]= int(np.mean(power[piff(0) :piff(156):1]))
+   matrix[2]= int(np.mean(power[piff(0) :piff(156):1]))
+   matrix[3]= int(np.mean(power[piff(0) :piff(156):1]))
+
+   matrix[4]= int(np.mean(power[piff(156)  :piff(313):1]))
+   matrix[5]= int(np.mean(power[piff(156)  :piff(313):1]))
+   matrix[6]= int(np.mean(power[piff(156)  :piff(313):1]))
+   matrix[7]= int(np.mean(power[piff(156)  :piff(313):1]))
+
+   matrix[8]= int(np.mean(power[piff(313)   :piff(625):1]))
+   matrix[9]= int(np.mean(power[piff(313)   :piff(625):1]))
+   matrix[10]= int(np.mean(power[piff(313)  :piff(625):1]))
+   matrix[11]= int(np.mean(power[piff(313)  :piff(625):1]))
+
+   matrix[12]= int(np.mean(power[piff(625) :piff(1250):1]))
+   matrix[13]= int(np.mean(power[piff(625) :piff(1250):1]))
+   matrix[14]= int(np.mean(power[piff(625) :piff(1250):1]))
+   matrix[15]= int(np.mean(power[piff(625) :piff(1250):1]))
+
+   matrix[16]= int(np.mean(power[piff(1250)  :piff(2500):1]))
+   matrix[17]= int(np.mean(power[piff(1250)  :piff(2500):1]))
+   matrix[18]= int(np.mean(power[piff(1250)  :piff(2500):1]))
+   matrix[19]= int(np.mean(power[piff(1250)  :piff(2500):1]))
+
+   matrix[20]= int(np.mean(power[piff(2500) :piff(5000):1]))
+   matrix[21]= int(np.mean(power[piff(2500) :piff(5000):1]))
+   matrix[22]= int(np.mean(power[piff(2500) :piff(5000):1]))
+   matrix[23]= int(np.mean(power[piff(2500) :piff(5000):1]))
+
+   matrix[24]= int(np.mean(power[piff(5000)  :piff(10000):1]))
+   matrix[25]= int(np.mean(power[piff(5000)  :piff(10000):1]))
+   matrix[26]= int(np.mean(power[piff(5000)  :piff(10000):1]))
+   matrix[27]= int(np.mean(power[piff(5000)  :piff(10000):1]))
+   
+   matrix[28]= int(np.mean(power[piff(10000) :piff(20000):1]))
+   matrix[29]= int(np.mean(power[piff(10000) :piff(20000):1]))
+   matrix[30]= int(np.mean(power[piff(10000) :piff(20000):1]))
+   matrix[31]= int(np.mean(power[piff(10000) :piff(20000):1]))
    # Tidy up column values for the LED matrix
    matrix=np.divide(np.multiply(matrix,weighting),1000000)
    # Set floor at 0 and ceiling at 8 for LED matrix
