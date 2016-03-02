@@ -71,7 +71,7 @@ def calculate_levels(data, chunk,sample_rate):
    # Tidy up column values for the LED matrix
    matrix=np.divide(np.multiply(matrix,weighting),1000000)
    # Set floor at 0 and ceiling at 8 for LED matrix
-   matrix=matrix.clip(0,8)
+   matrix=matrix.clip(0,16)
    return matrix
 
 # Process audio file
@@ -80,7 +80,7 @@ data = wavfile.readframes(chunk)
 while data!='':
    output.write(data)
    matrix=calculate_levels(data, chunk,sample_rate)
-   for i in range (0,8):
+   for i in range (0,16):
       Set_Column((1<<matrix[i])-1,0xFF^(1<<i))
    data = wavfile.readframes(chunk)
    TurnOffLEDS()
