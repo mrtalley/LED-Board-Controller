@@ -30,6 +30,10 @@ def Set_Column(row, col):
 
 # Initialise matrix
 TurnOffLEDS()
+#If this does not complile we may need to edit the matrix to include 16 values
+#instead of just 8. Also we need to experiment with the weighting array to
+#adjust to that to our tastes.
+
 matrix    = [0,0,0,0,0,0,0,0]
 power     = []
 weighting = [2,2,8,8,16,32,64,64] # Change these according to taste
