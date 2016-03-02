@@ -36,7 +36,7 @@ TurnOffLEDS()
 
 matrix    = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 power     = []
-weighting = [2,2,8,8,16,32,64,64] # Change these according to taste
+weighting = [2,2,2,2,2,2,2,2,8,8,8,8,8,8,8,8,16,16,16,16,32,32,32,32,64,64,64,64,64,64,64,64] # Change these according to taste
 
 # Set up audio
 wavfile = wave.open('/home/pi/python_programs/NorwegianWood.wav','r')
@@ -99,7 +99,7 @@ def calculate_levels(data, chunk,sample_rate):
    matrix[25]= int(np.mean(power[piff(5000)  :piff(10000):1]))
    matrix[26]= int(np.mean(power[piff(5000)  :piff(10000):1]))
    matrix[27]= int(np.mean(power[piff(5000)  :piff(10000):1]))
-   
+
    matrix[28]= int(np.mean(power[piff(10000) :piff(20000):1]))
    matrix[29]= int(np.mean(power[piff(10000) :piff(20000):1]))
    matrix[30]= int(np.mean(power[piff(10000) :piff(20000):1]))
