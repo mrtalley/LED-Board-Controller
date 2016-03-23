@@ -12,7 +12,7 @@ import struct
 import numpy as np
 import wave
 
-bus=smbus.SMBus(0)     #Use '1' for newer Pi boards;
+bus=smbus.SMBus(0)     #Use '1' for newer Pi boards
 ADDR   = 0x20         #The I2C address of MCP23017
 DIRA   = 0x00         #PortA I/O direction, by pin. 0=output, 1=input
 DIRB   = 0x01         #PortB I/O direction, by pin. 0=output, 1=input
