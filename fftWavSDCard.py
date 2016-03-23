@@ -106,7 +106,7 @@ def calculate_levels(data, chunk,sample_rate):
    matrix[31]= int(np.mean(power[piff(10000) :piff(20000):1]))
    # Tidy up column values for the LED matrix
    matrix=np.divide(np.multiply(matrix,weighting),1000000)
-   # Set floor at 0 and ceiling at 8 for LED matrix
+   # Set floor at 0 and ceiling at 16 for LED matrix
    matrix=matrix.clip(0,16)
    return matrix
 
